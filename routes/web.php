@@ -14,11 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+route::resource('projects', 'projectsController');
 
-Route::get('/project', 'projectsController@index');
+// Route::get('/project', 'projectsController@index');
 
-Route::post('/project', 'projectsController@store');
+// Route::get('/project/create', 'projectsController@create');
 
-Route::get('/project/create', 'projectsController@create');
+// Route::get('/project/{project}', 'projectsController@show');
+
+// Route::post('/project', 'projectsController@store');
+
+// Route::get('/project/{project}/edit', 'projectsController@edit');
+
+// Route::patch('/project/{project}', 'projectsController@update');
+
+// Route::delete('/project/{project}', 'projectsController@destroy');
 
 

@@ -16,19 +16,37 @@ class projectsController extends Controller
         return view('projects.index', ['projects' => $project]);
     }
 
+    public function store() {
+
+        $project = new project();
+        $project->title = request('title');
+        $project->description = request('description');
+        $project->save();
+        return redirect('/project');
+    }
+
     public function create() {
 
         return view('projects.create');
     }
 
-public function store() {
-
-    $project = new project();
-    $project->title = request('title');
-    $project->description = request('description');
-    $project->save();
-    return redirect('/project');
-}
 
 
+    public function show() {
+
+        return view('project.show');
+
+    } 
+
+    public function edit() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function destroy() {
+        
+    }
 }
