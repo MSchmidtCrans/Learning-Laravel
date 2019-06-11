@@ -8,12 +8,25 @@
 
     {{ $project->description }}
 
-</div>
-
-<p>
+    <p>
 
     <a href="/projects/{{ $project->id }}/edit">Edit</a>
 
 </p>
+
+</div>
+
+@if ($project->tasks->count())
+<div>
+<h2>Tasks:</h2>
+    @foreach($project->tasks as $task) 
+
+        <li>
+            {{ $task->description }};
+        </li>
+        
+    @endforeach
+</div>
+@endif
 
 @endsection
