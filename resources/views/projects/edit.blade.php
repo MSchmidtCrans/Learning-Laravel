@@ -5,8 +5,8 @@
 
 <form action="/projects/ {{ $project->id }}" method="POST">
 
-    {{ method_field("PATCH") }};
-    {{ csrf_field() }};
+   @method('PATCH');
+    @csrf;
 
     <div>
         <label for="title">Title</label>
