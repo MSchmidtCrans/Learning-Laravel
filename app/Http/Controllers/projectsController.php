@@ -11,18 +11,17 @@ use App\project;
 class projectsController extends Controller
 {
     public function index(){
-        $project = \App\project::All();
+        
+        $project = project::All();
 
         return view('projects.index', ['projects' => $project]);
     }
 
     public function store() {
 
-        $project = new project();
-        $project->title = request('title');
-        $project->description = request('description');
-        $project->save();
-        return redirect('/project');
+        project::create(request(['title' ,'description']));
+
+        return redirect('/projects');
     }
 
     public function create() {
@@ -32,34 +31,31 @@ class projectsController extends Controller
 
 
 
-    public function show() {
+    public function show(Project $project) {
 
-        return view('project.show');
+        return view('projects.show', compact('project'));
 
     } 
 
-    public function edit($id) {
+    public function edit(Project $project) {
 
-        $project = Project::findOrFail($id);
+
         return view('projects.edit', compact('project'));
 
     }
 
-    public function update($id) {
+    public function update(Project $project) {
 
-        $project = Project::findOrFail($id);
-        $project->title = request('title');
-        $project->description = request('description');
+        $project->update(request(['title', 'description']));
 
-        $project->save();
         return redirect('/projects');
 
 
     }
 
-    public function destroy($id) {
+    public function destroy(Project $project) {
 
-        Project::findOrFail($id)->delete();
+       $project->delete();
         return redirect('/projects');
     }
 }

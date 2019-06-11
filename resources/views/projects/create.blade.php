@@ -10,7 +10,7 @@
 
 <h1>Create a new project</h1>
 
-<form action="/project" method="post">
+<form action="/projects" method="POST">
 
 {{ csrf_field() }}
 
