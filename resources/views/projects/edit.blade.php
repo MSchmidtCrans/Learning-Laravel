@@ -11,7 +11,7 @@
     <div>
         <label for="title">Title</label>
             <div>
-                <input type="text" name='title'  placeholder='title' value=' {{ $project->title }}'>
+                <input type="text" name='title'  placeholder='title' value=' {{ $project->title }}' required>
             </div>
     </div>
 
@@ -19,7 +19,7 @@
         <label for="description">Description</label>
     </div>
     <div>
-        <textarea name="description" >{{ $project->description }}</textarea>
+        <textarea name="description"  required>{{ $project->description }}</textarea>
     </div>
 
 <div>
